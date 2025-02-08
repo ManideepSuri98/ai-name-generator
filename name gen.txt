@@ -12,6 +12,7 @@
         .btn { padding: 12px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
         .btn:hover { background: #0056b3; }
         #results { margin-top: 20px; text-align: left; padding: 10px; }
+        .ad-container { margin-top: 20px; text-align: center; }
     </style>
     <script>
         function generateNames() {
@@ -40,6 +41,19 @@
         <input type="text" id="keyword" placeholder="Enter a keyword">
         <button class="btn" onclick="generateNames()">Generate Names</button>
         <div id="results"></div>
+        <div class="ad-container">
+            <!-- Google AdSense Ad Slot -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="YOUR_ADSENSE_CLIENT_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
 </body>
 </html>
