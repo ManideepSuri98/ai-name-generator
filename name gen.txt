@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Business Name Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px; }
+        h1 { color: #333; }
+        .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
+        input { width: 80%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .btn { padding: 12px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        .btn:hover { background: #0056b3; }
+        #results { margin-top: 20px; text-align: left; padding: 10px; }
+    </style>
+    <script>
+        function generateNames() {
+            let keyword = document.getElementById('keyword').value;
+            if (!keyword) {
+                alert("Please enter a keyword!");
+                return;
+            }
+            fetch(`https://script.google.com/macros/s/YOUR_SCRIPT_URL/exec?keyword=${keyword}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultDiv = document.getElementById('results');
+                    resultDiv.innerHTML = '<h3>Generated Names:</h3>';
+                    data.names.forEach(name => {
+                        resultDiv.innerHTML += `<p style="font-size: 18px; color: #007BFF;">${name}</p>`;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Name Generator</h1>
+        <p>Enter a keyword to generate catchy business names:</p>
+        <input type="text" id="keyword" placeholder="Enter a keyword">
+        <button class="btn" onclick="generateNames()">Generate Names</button>
+        <div id="results"></div>
+    </div>
+</body>
+</html>
